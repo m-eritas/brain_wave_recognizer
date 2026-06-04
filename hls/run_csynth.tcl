@@ -9,6 +9,7 @@ add_files -tb tb/tb.cpp
 
 open_solution solution1 -flow_target vivado
 set_part {xa7a12tcpg238-2I}
+create_clock -period 10.0 -name default
 
-csim_design
+csynth_design
 exit
