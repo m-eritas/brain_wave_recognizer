@@ -9,7 +9,7 @@ entity vga_display is
 
         wave_detect: in std_logic;        -- from HLS flag_out
         band_sel: in  std_logic_vector(2 downto 0);      -- selected EEG band (delta to gamma)
-        --cpu_mode: in  std_logic_vector(7 downto 0);  -- For later CPU implementation
+        cpu_mode: in  std_logic_vector(7 downto 0);  -- For later CPU implementation
 
         hsync: out std_logic;
         vsync: out std_logic;
@@ -34,7 +34,7 @@ architecture Behavioral of vga_display is
 
     signal h_count: unsigned(9 downto 0) := (others => '0');
     signal v_count: unsigned(9 downto 0) := (others => '0');
-    signal video_on: std_logic;
+    signal video_on: std_logic := '0';
 begin
     --------------------------------------------
     -- Horizontal and vertical pixel counters
