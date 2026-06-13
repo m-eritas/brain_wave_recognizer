@@ -8,7 +8,7 @@ add_files src/brainwave_recognizer.cpp
 add_files -tb tb/tb.cpp
 
 open_solution solution1 -flow_target vivado
-set_part {xa7a12tcpg238-2I}
+set_part {xc7a100tcsg324-1}
 create_clock -period 10.0 -name default
 
 csynth_design
