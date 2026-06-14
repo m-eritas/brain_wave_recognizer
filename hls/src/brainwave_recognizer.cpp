@@ -25,7 +25,7 @@ static const ap_int<16> filters[5][N] = {
     26,87,168,256,298,219,-33,-446,-915,-1268,-1326,-983,-265,652,1500,2008,2008,1500,652,-265,-983,-1326,-1268,-915,-446,-33,219,298,256,168,87,26},
   /* 3 : Beta 12-30 Hz */ {
        -28,-6,-6,-88,-142,50,337,261,-16,255,748,-127,-2353,-2951,102,3946,3946,102,-2951,-2353,-127,748,255,-16,261,337,50,-142,-88,-6,-6,-28},
-  /* 4 : Gamma 30-100 Hz */ {
+  /* 4 : Gamma 30-62 Hz */ {
     19,-14,-50,52,52,40,-332,208,101,501,-1290,541,-50,2924,-6114,3413,3413,-6114,2924,-50,541,-1290,501,101,208,-332,40,52,52,-50,-14,19}
 };
 
@@ -118,7 +118,8 @@ void brainwave_recognizer(
 
 
     /* ------------- Thresholding ------------- */
-    const ap_uint<18> THRESHOLD = (ap_uint<18>)(thresholders[sens_sel]) << 3;
+    ap_uint<2> safe_sens = (sens_sel > 2) ? ap_uint<2>(2) : sens_sel;
+    const ap_uint<18> THRESHOLD = (ap_uint<18>)(thresholders[safe_sens]) << 3;
     // Low:  1638 × 8 = 13,104
     // Mid:  2949 × 8 = 23,592
     // High: 4096 × 8 = 32,768
@@ -134,9 +135,9 @@ void brainwave_recognizer(
         counter--;
     }
 
+    flag_out = (counter >= 40);
+
     #ifdef HLS_DEBUG_PRINT
     printf("sample=%d  flag=%d\n", sample.to_int(), flag_out);
     #endif
-
-    flag_out = (counter >= 40);
 }

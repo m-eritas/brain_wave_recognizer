@@ -10,7 +10,7 @@ bands = {
     "Theta": (4.0, 8.0),
     "Alpha": (8.0, 12.0),
     "Beta":  (12.0, 30.0),
-    "Gamma": (30.0, 62.0),  # NOT 100 Hz — Nyquist at Fs=128 is 64 Hz
+    "Gamma": (30.0, 62.0),
 }
 
 for name, (lo, hi) in bands.items():

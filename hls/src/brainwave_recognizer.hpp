@@ -3,7 +3,7 @@
 
 // ──────────────────────────────────────────────────────────────
 // Top-level HLS function you’re synthesising.
-// Keep the signature EXACTLY the same as in brain_wave_recognizer.cpp
+// Keep the signature EXACTLY the same as in brainwave_recognizer.cpp
 // ──────────────────────────────────────────────────────────────
 void brainwave_recognizer(
     ap_int<16>  sample,      // one input sample (Q2.14)
