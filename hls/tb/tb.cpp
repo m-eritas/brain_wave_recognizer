@@ -11,27 +11,33 @@ int main() {
     bool flag = false;
     bool dummy = false;
 
+    ap_uint<18> env_out = 0;
+    ap_uint<18> threshold_out = 0;
+
     // TEST 1: 256-sample alpha burst: 10 Hz sine, half-scale amplitude - should DETECT
     for (int n = 0; n < 256; ++n) {
         float f = 0.5f * sinf(2.0f * PI * 10.0f * n / 128.0f); // 10 Hz — centre of alpha band
         ap_int<16> x = (ap_int<16>)(f * (1 << 14));
-        brainwave_recognizer(x, 2 /*alpha*/, 1 /*medium*/, flag);
+        brainwave_recognizer(x, 2 /*alpha*/, 1 /*medium*/, flag, env_out, threshold_out);
     }
-    assert(flag == true && "Alpha burst not detected — check FIR coefficients and threshold");
+
+    assert((threshold_out != 0 && env_out != 0) && "threshold_out and env_out are zero");
+    assert(flag == true && "Alpha burst not detected — check FIR coefficients and threshold" );
 
     // Reset static internal state by running 400 zero samples
     flag = false;
     for (int n = 0; n < 400; ++n) {
-        brainwave_recognizer(ap_int<16>(0), 2, 1, dummy);
+        brainwave_recognizer(ap_int<16>(0), 2, 1, dummy, env_out, threshold_out);
     }
 
     // TEST 2: 256-sample beta burst: 20 Hz sine into the alpha filter — should NOT DETECT
     for (int n = 0; n < 256; ++n) {
         float f = 0.5f * sinf(2.0f * PI * 20.0f * n / 128.0f);
         ap_int<16> x = (ap_int<16>)(f * (1 << 14));
-        brainwave_recognizer(x, 2 /*alpha*/, 1 /*medium*/, flag);
+        brainwave_recognizer(x, 2 /*alpha*/, 1 /*medium*/, flag, env_out, threshold_out);
     }
 
+    assert(threshold_out != 0 && "threshold_out is zero");
     assert(flag == false && "20 Hz beta triggered alpha detector — filter is wrong");
     
     return 0;
