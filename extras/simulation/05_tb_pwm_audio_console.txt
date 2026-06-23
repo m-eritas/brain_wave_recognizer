@@ -1,0 +1,93 @@
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_pwm_audio'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_pwm_audio' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_pwm_audio_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sources_1/imports/rtl/audio/pwm_audio.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pwm_audio'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_pwm_audio'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_pwm_audio_behav xil_defaultlib.tb_pwm_audio -log elaborate.log"
+Vivado Simulator v2024.1.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_pwm_audio_behav xil_defaultlib.tb_pwm_audio -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.pwm_audio [\pwm_audio(clk_hz=1000000)\]
+Compiling architecture sim of entity xil_defaultlib.tb_pwm_audio
+Built simulation snapshot tb_pwm_audio_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_pwm_audio_behav -key {Behavioral:sim_1:Functional:tb_pwm_audio} -tclbatch {tb_pwm_audio.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_pwm_audio.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_pwm_audio_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1547.707 ; gain = 33.910
+run 200 ms
+Note: TEST: silent when wave_detect=0
+Time: 19501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: PASS: silent when wave_detect=0
+Time: 1043501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: TEST: alpha active PWM is not stuck
+Time: 1043501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: PASS: alpha active PWM is not stuck
+Time: 5139501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: Testing PWM band: Delta
+Time: 5139501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: PASS PWM band: Delta
+Time: 16463501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: Testing PWM band: Theta
+Time: 16463501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: PASS PWM band: Theta
+Time: 27787501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: Testing PWM band: Alpha
+Time: 27787501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: PASS PWM band: Alpha
+Time: 39111501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: Testing PWM band: Beta
+Time: 39111501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: PASS PWM band: Beta
+Time: 50435501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: Testing PWM band: Gamma
+Time: 50435501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: PASS PWM band: Gamma
+Time: 61759501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: Testing PWM band: Invalid selector defaults to Alpha tone
+Time: 61759501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: PASS PWM band: Invalid selector defaults to Alpha tone
+Time: 73083501 ns  Iteration: 0  Process: /tb_pwm_audio/stim_process  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/vivado/Brain Wave Recognizer.srcs/sim_1/imports/rtl/audio/tb_pwm_audio.vhd
+Note: tb_pwm_audio passed.

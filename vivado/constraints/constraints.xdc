@@ -26,3 +26,6 @@ set_property -dict { PACKAGE_PIN D8 IOSTANDARD LVCMOS33 } [get_ports {vga_b[3]}]
 ## VGA sync
 set_property -dict { PACKAGE_PIN B11 IOSTANDARD LVCMOS33 } [get_ports {vga_hsync}]
 set_property -dict { PACKAGE_PIN B12 IOSTANDARD LVCMOS33 } [get_ports {vga_vsync}]
+
+## PWM audio output
+set_property -dict { PACKAGE_PIN C17 IOSTANDARD LVCMOS33 } [get_ports {audio_pwm}]

@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use std.env.all;
 
 entity tb_vga_display is
 end tb_vga_display;
@@ -183,6 +182,6 @@ begin
 
         report "tb_vga_display passed: interface, timing, blanking, and banner colour checks are OK."
             severity note;
-        finish;
+        wait;
     end process;
 end sim;

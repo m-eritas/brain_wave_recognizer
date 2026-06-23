@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use std.env.all;
 
 entity tb_test_signal_generator is
 end tb_test_signal_generator;
@@ -152,6 +151,6 @@ begin
         report "tb_test_signal_generator passed: 25 MHz / 128 Hz timing and mode behavior are OK."
             severity note;
 
-        finish;
+        wait;
     end process;
 end sim;
