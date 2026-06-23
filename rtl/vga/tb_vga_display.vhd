@@ -1,26 +1,33 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use std.env.all;
 
 entity tb_vga_display is
 end tb_vga_display;
 
 architecture sim of tb_vga_display is
-    --------------------------------------------------------------------
-    -- VGA 640x480 @ 60 Hz uses ~25 MHz pixel clock.
-    -- 25 MHz period = 40 ns.
-    --------------------------------------------------------------------
+
+    ---------------------
+    -- VGA 640x480 @ 60 Hz using 25 MHz pixel clock.
+    ---------------------
     constant CLK_PERIOD: time    := 40 ns;
     constant H_SYNC_WIDTH: integer := 96;
     constant V_SYNC_WIDTH_CLK: integer := 1600; -- 2 lines * 800 clocks/line
 
+    ---------------------
+    -- DUT signals
+    ---------------------
     signal clk: std_logic := '0';
     signal rst: std_logic := '1';
 
     signal wave_detect: std_logic := '0';
     signal band_sel: std_logic_vector(2 downto 0) := "010"; -- Alpha
-    signal cpu_mode: std_logic_vector(7 downto 0) := x"00"; -- Track A
+
+    signal sample_in: std_logic_vector(15 downto 0) := (others => '0');
+    signal sample_valid: std_logic := '0';
+
+    signal env_in: std_logic_vector(17 downto 0) := (others => '0');
+    signal threshold_in: std_logic_vector(17 downto 0) := (others => '0');
 
     signal hsync: std_logic;
     signal vsync: std_logic;
@@ -28,13 +35,12 @@ architecture sim of tb_vga_display is
     signal g: std_logic_vector(3 downto 0);
     signal b: std_logic_vector(3 downto 0);
 
-    --------------------------------------------------------------------
-    -- Helper procedure: wait for N rising clock edges, then allow outputs
-    -- to settle for a small delta of simulation time.
-    --------------------------------------------------------------------
+    ---------------------
+    -- Helper procedure
+    ---------------------
     procedure wait_clocks(
-        signal clk_sig : in std_logic;
-        constant n     : in natural
+        signal clk_sig: in std_logic;
+        constant n: in natural
     ) is
     begin
         for i in 1 to n loop
@@ -44,26 +50,33 @@ architecture sim of tb_vga_display is
     end procedure;
 
 begin
-    --------------------------------------------------------------------
+    ---------------------
     -- Device under test
-    --------------------------------------------------------------------
+    ---------------------
     dut : entity work.vga_display
         port map (
-            clk         => clk,
-            rst         => rst,
+            clk => clk,
+            rst => rst,
+
             wave_detect => wave_detect,
-            band_sel    => band_sel,
-            cpu_mode    => cpu_mode,
-            hsync       => hsync,
-            vsync       => vsync,
-            r           => r,
-            g           => g,
-            b           => b
+            band_sel => band_sel,
+
+            sample_in => sample_in,
+            sample_valid => sample_valid,
+
+            env_in => env_in,
+            threshold_in => threshold_in,
+
+            hsync => hsync,
+            vsync => vsync,
+            r => r,
+            g => g,
+            b => b
         );
 
-    --------------------------------------------------------------------
+    ---------------------
     -- 25 MHz clock generation
-    --------------------------------------------------------------------
+    ---------------------
     clk_process : process
     begin
         while true loop
@@ -74,17 +87,26 @@ begin
         end loop;
     end process;
 
-    --------------------------------------------------------------------
+    ---------------------
     -- Main test process
-    --------------------------------------------------------------------
+    ---------------------
     stim_process : process
-        variable h_low_count : integer := 0;
-        variable v_low_count : integer := 0;
+        variable h_low_count: integer := 0;
+        variable v_low_count: integer := 0;
     begin
-        rst         <= '1';
+        ---------------------
+        -- Initial values
+        ---------------------
+        rst <= '1';
         wave_detect <= '0';
-        band_sel    <= "010"; -- Alpha
-        cpu_mode    <= x"00";
+        band_sel <= "010"; -- Alpha
+
+        sample_in <= (others => '0');
+        sample_valid <= '0';
+
+        -- nonzero values so the bar/threshold logic is active.
+        env_in       <= std_logic_vector(to_unsigned(45000, 18));
+        threshold_in <= std_logic_vector(to_unsigned(23592, 18));
 
         wait_clocks(clk, 5);
 
@@ -92,31 +114,33 @@ begin
 
         wait_clocks(clk, 2);
 
-        ----------------------------------------------------------------
-        -- Test 1: visible idle color (dim green)
-        -- Expected from the minimal vga_display:
-        ----------------------------------------------------------------
-        assert (r = "0000" and g = "0010" and b = "0000")
-            report "Idle visible RGB is wrong"
+        ---------------------
+        -- Test 1: idle status banner colour
+        ---------------------
+        assert (r = "0000" and g = "0011" and b = "0000")
+            report "Idle status banner RGB is wrong"
             severity error;
 
-        ----------------------------------------------------------------
-        -- Test 2: wave_detect changes visible colour (bright green for alpha)
-        ----------------------------------------------------------------
+        ---------------------
+        -- Test 2: alpha detection changes top banner colour
+        ---------------------
         wave_detect <= '1';
+        band_sel    <= "010"; -- Alpha
+
         wait_clocks(clk, 2);
 
         assert (r = "0000" and g = "1111" and b = "0000")
-            report "Detected alpha RGB is wrong"
+            report "Alpha detected banner RGB is wrong"
             severity error;
 
-        ----------------------------------------------------------------
+        ---------------------
         -- Test 3: hsync pulse width and horizontal blanking
-        ----------------------------------------------------------------
+        ---------------------
         wait until falling_edge(hsync);
         wait for 1 ns;
 
-        -- Horizontal blanking during hsync (RGB black even if wave detected)
+        -- During hsync, we are outside the visible region.
+        -- RGB must be black.
         assert (r = "0000" and g = "0000" and b = "0000")
             report "RGB is not black during horizontal blanking"
             severity error;
@@ -133,13 +157,13 @@ begin
             report "Wrong hsync low width"
             severity error;
 
-        ----------------------------------------------------------------
+        ---------------------
         -- Test 4: vsync pulse width and vertical blanking
-        ----------------------------------------------------------------
+        ---------------------
         wait until falling_edge(vsync);
         wait for 1 ns;
 
-        -- Vertical blanking during vsync (RGB black)
+        -- During vsync, RGB must be black.
         assert (r = "0000" and g = "0000" and b = "0000")
             report "RGB is not black during vertical blanking"
             severity error;
@@ -156,12 +180,8 @@ begin
             report "Wrong vsync low width"
             severity error;
 
-        ----------------------------------------------------------------
-        -- Done
-        ----------------------------------------------------------------
-        report "tb_vga_display passed: timing, blanking, and colour checks are OK."
+        report "tb_vga_display passed: interface, timing, blanking, and banner colour checks are OK."
             severity note;
-
-        finish;
+        wait;
     end process;
 end sim;

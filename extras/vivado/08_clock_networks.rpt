@@ -1,0 +1,24 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1.2 (win64) Build 5164865 Thu Sep  5 14:37:11 MDT 2024
+| Date         : Wed Jun 24 00:27:18 2026
+| Host         : MSI running 64-bit major release  (build 9200)
+| Command      : report_clock_networks -file D:/Files/UniTrento/advanced/final_brain_wave_recognizer/extras/proof/vivado/08_clock_networks.rpt
+| Design       : design_1_wrapper
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Clock Networks Report
+
+
+Constrained Clocks
+-------------------
+
+Clock sys_clk (100MHz)(endpoints: 6928 clock, 1 nonclock)
+Port sys_clk
+
+Clock sys_clk_pin (100MHz)(endpoints: 6928 clock, 1 nonclock)
+Port sys_clk
+

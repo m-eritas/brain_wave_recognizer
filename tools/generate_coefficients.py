@@ -1,7 +1,7 @@
 from scipy.signal import firwin
 import numpy as np
 
-FS = 128          # MUST match FIR.cpp assumption
+FS = 128          # MUST match brainwave_recognizer.cpp assumption
 N_TAPS = 32
 SCALE = 1 << 14   # Q2.14
 

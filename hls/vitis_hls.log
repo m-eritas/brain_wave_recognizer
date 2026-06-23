@@ -1,0 +1,487 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.1.2 (64-bit)
+  **** SW Build 5096458 on Sep  5 2024
+  **** IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
+  **** SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
+  **** Start of session at: Tue Jun 23 21:10:30 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source C:/Xilinx/Vitis_HLS/2024.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] For user 'Meritas' on host 'msi' (Windows NT_amd64 version 10.0) on Tue Jun 23 21:10:31 +0200 2026
+INFO: [HLS 200-10] In directory 'D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls'
+WARNING: [HLS 200-2053] The vitis_hls executable is deprecated. Consider using vitis-run --mode hls --tcl
+Sourcing Tcl script '.\run_export_ip.tcl'
+INFO: [HLS 200-1510] Running: open_project brain_wave_detector 
+INFO: [HLS 200-10] Creating and opening project 'D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector'.
+INFO: [HLS 200-1510] Running: set_top brainwave_recognizer 
+INFO: [HLS 200-1510] Running: add_files src/brainwave_recognizer.hpp 
+INFO: [HLS 200-10] Adding design file 'src/brainwave_recognizer.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files src/brainwave_recognizer.cpp 
+INFO: [HLS 200-10] Adding design file 'src/brainwave_recognizer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb tb/tb.cpp 
+INFO: [HLS 200-10] Adding test bench file 'tb/tb.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xc7a100tcsg324-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10.0 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.2 seconds; current allocated memory: 135.145 MB.
+INFO: [HLS 200-10] Analyzing design file 'src/brainwave_recognizer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 7.465 seconds; current allocated memory: 137.820 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 1,237 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 418 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 358 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 358 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 356 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 355 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 355 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 355 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 355 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 355 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 355 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 355 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 1,382 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 386 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 390 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 392 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_87_2' is marked as complete unroll implied by the pipeline pragma (src/brainwave_recognizer.cpp:87:22)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_76_1' is marked as complete unroll implied by the pipeline pragma (src/brainwave_recognizer.cpp:76:22)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_87_2' (src/brainwave_recognizer.cpp:87:22) in function 'brainwave_recognizer' completely with a factor of 32 (src/brainwave_recognizer.cpp:42:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_76_1' (src/brainwave_recognizer.cpp:76:22) in function 'brainwave_recognizer' completely with a factor of 31 (src/brainwave_recognizer.cpp:42:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL15threshold_table' completely based on array size. (src/brainwave_recognizer.cpp:28:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=2' for array 'filter_coeffs' due to pipeline pragma (src/brainwave_recognizer.cpp:51:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'threshold_table' due to pipeline pragma (src/brainwave_recognizer.cpp:28:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'brainwave_recognizer(ap_int<16>, bool, ap_uint<3>, ap_uint<2>, bool&, ap_uint<18>&, ap_uint<18>&)::x_reg' due to pipeline pragma (src/brainwave_recognizer.cpp:51:9)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E5x_reg': Complete partitioning on dimension 1. (src/brainwave_recognizer.cpp:53:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL15threshold_table': Complete partitioning on dimension 1. (src/brainwave_recognizer.cpp:28:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL13filter_coeffs': Complete partitioning on dimension 2. (src/brainwave_recognizer.cpp:14:0)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (src/brainwave_recognizer.cpp:61:39)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 9.285 seconds; current allocated memory: 139.617 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.009 seconds; current allocated memory: 139.617 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.092 seconds; current allocated memory: 144.613 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.066 seconds; current allocated memory: 146.855 MB.
+INFO: [XFORM 203-11] Balancing expressions in function 'brainwave_recognizer' (src/brainwave_recognizer.cpp:34:5)...31 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.187 seconds; current allocated memory: 169.777 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.141 seconds; current allocated memory: 169.793 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'brainwave_recognizer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'brainwave_recognizer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_26) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_25) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_23) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_22) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_19) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_18) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_16) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_10) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_8) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln89) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining function 'brainwave_recognizer'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 9, function 'brainwave_recognizer'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.792 seconds; current allocated memory: 170.148 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.522 seconds; current allocated memory: 171.703 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'brainwave_recognizer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'brainwave_recognizer/sample' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'brainwave_recognizer/sample_valid' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'brainwave_recognizer/band_sel' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'brainwave_recognizer/threshold_sel' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'brainwave_recognizer/flag_out' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'flag_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'brainwave_recognizer/env_out' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'env_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'brainwave_recognizer/threshold_out' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'threshold_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on function 'brainwave_recognizer' to 'ap_ctrl_none'.
+WARNING: [RTGEN 206-101] Register 'env' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'counter' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_6' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_8' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_9' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_10' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_11' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_12' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_13' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_14' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_15' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_16' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_17' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_18' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_19' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ20brainwave_recognizer6ap_intILi16EEb7ap_uintILi3EES1_ILi2EERbRS1_ILi18EES6_E_20' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg_6' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg_7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg_8' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'brainwave_recognizer_ap_int_bool_ap_uint_ap_uint_bool_ap_uint_ap_uint_x_reg_9' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'brainwave_recognizer' pipeline 'brainwave_recognizer' pipeline type 'function pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_10s_25s_25_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_10s_26s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_11s_27s_27_4_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_12ns_28s_29_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_12s_28s_28_4_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_13s_28s_28_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_13s_30s_30_4_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_6s_23s_23_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_6s_25s_25_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_8s_24s_24_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_10s_25_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_10s_26_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_11s_27_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_12ns_28_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_12s_28_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_13s_28_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_14s_30_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_8s_23_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_9s_24_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_9s_25_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_13_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'brainwave_recognizer'.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_0_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_1_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_2_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_3_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_4_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_5_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_6_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_7_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_8_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_9_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_10_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_11_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_12_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_13_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_14_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'brainwave_recognizer_p_ZL13filter_coeffs_15_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.771 seconds; current allocated memory: 176.953 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 2.435 seconds; current allocated memory: 185.656 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.43 seconds; current allocated memory: 188.602 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for brainwave_recognizer.
+INFO: [VLOG 209-307] Generating Verilog RTL for brainwave_recognizer.
+INFO: [HLS 200-789] **** Estimated Fmax: 144.09 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:24; Allocated memory: 53.906 MB.
+INFO: [HLS 200-1510] Running: cosim_design -rtl vhdl 
+WARNING: [COSIM] found non-self-synchronizing top I/O sample
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "C:/Xilinx/Vitis_HLS/2024.1/vcxx/libexec/clang++"
+   Compiling tb.cpp_pre.cpp.tb.cpp
+   Compiling brainwave_recognizer.cpp_pre.cpp.tb.cpp
+   Compiling apatb_brainwave_recognizer.cpp
+   Compiling apatb_brainwave_recognizer_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Starting HLS testbench...
+TEST: alpha positive detection
+PASS: alpha positive detection
+TEST: sample_valid=false hold behavior
+PASS: sample_valid=false hold behavior
+TEST: 20 Hz beta into alpha filter should not detect
+PASS: beta rejected by alpha filter
+TEST: all-band positive detection
+band=0 freq=2.000000 env=51528 threshold=23592 flag=1
+band=1 freq=6.000000 env=43002 threshold=23592 flag=1
+band=2 freq=10.000000 env=42262 threshold=23592 flag=1
+band=3 freq=20.000000 env=41892 threshold=23592 flag=1
+band=4 freq=40.000000 env=42201 threshold=23592 flag=1
+PASS: all-band positive detection
+TEST: invalid selector clamping
+PASS: invalid selector clamping
+TEST: threshold levels
+low threshold: env=21132 threshold=13104 flag=1
+high threshold: env=21132 threshold=32768 flag=0
+PASS: threshold levels
+All HLS tests passed.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-322] Starting VHDL simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+
+D:\Files\UniTrento\advanced\final_brain_wave_recognizer\hls\brain_wave_detector\solution1\sim\vhdl>set PATH= 
+
+D:\Files\UniTrento\advanced\final_brain_wave_recognizer\hls\brain_wave_detector\solution1\sim\vhdl>call C:/Xilinx/Vivado/2024.1/bin/xelab xil_defaultlib.apatb_brainwave_recognizer_top glbl -Oenable_linking_all_libraries  -prj brainwave_recognizer.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims -L unisims_ver -L xpm  -L floating_point_v7_1_18 -L floating_point_v7_0_23 --lib "ieee_proposed=./ieee_proposed" -s brainwave_recognizer  
+Vivado Simulator v2024.1.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_brainwave_recognizer_top glbl -Oenable_linking_all_libraries -prj brainwave_recognizer.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims -L unisims_ver -L xpm -L floating_point_v7_1_18 -L floating_point_v7_0_23 --lib ieee_proposed=./ieee_proposed -s brainwave_recognizer 
+Multi-threading is on. Using 10 slave threads.
+Determining compilation order of HDL files.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/AESL_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer.autotb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'apatb_brainwave_recognizer_top'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_10s_25s_25_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_10s_25s_25_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_10s_25s_25_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_10s_26s_26_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_10s_26s_26_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_10s_26s_26_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_11s_27s_27_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_11s_27s_27_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_11s_27s_27_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_12ns_28s_29_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_12ns_28s_29_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_12ns_28s_29_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_12s_28s_28_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_12s_28s_28_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_12s_28s_28_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_13s_28s_28_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_13s_28s_28_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_13s_28s_28_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_13s_30s_30_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_13s_30s_30_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_13s_30s_30_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_6s_23s_23_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_6s_23s_23_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_6s_23s_23_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_6s_25s_25_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_6s_25s_25_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_6s_25s_25_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mac_muladd_16s_8s_24s_24_4_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_8s_24s_24_4_1_DSP48_0'
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mac_muladd_16s_8s_24s_24_4_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_10s_25_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_10s_25_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_10s_26_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_10s_26_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_11s_27_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_11s_27_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_12ns_28_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_12ns_28_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_12s_28_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_12s_28_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_13s_28_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_13s_28_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_14s_30_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_14s_30_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_8s_23_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_8s_23_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_9s_24_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_9s_24_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_mul_16s_9s_25_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_mul_16s_9s_25_1_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_0_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_0_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_10_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_10_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_11_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_11_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_12_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_12_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_13_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_13_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_14_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_14_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_15_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_15_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_1_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_1_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_2_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_2_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_3_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_3_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_4_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_4_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_5_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_5_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_6_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_6_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_7_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_7_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_8_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_8_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_p_ZL13filter_coeffs_9_ROM_AUTO_1R.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_p_ZL13filter_coeffs_9_ROM_AUTO_1R'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_sparsemux_7_2_13_1_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'brainwave_recognizer_sparsemux_7_2_13_1_1'
+WARNING: [VRFC 10-471] case choice must be a locally static expression [D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_sparsemux_7_2_13_1_1.vhd:59]
+WARNING: [VRFC 10-471] case choice must be a locally static expression [D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_sparsemux_7_2_13_1_1.vhd:62]
+WARNING: [VRFC 10-471] case choice must be a locally static expression [D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer_sparsemux_7_2_13_1_1.vhd:65]
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_textio
+Compiling module work.glbl
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_0_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_1_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_2_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_3_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_4_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_5_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_6_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_7_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_8_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_9_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_10_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_11_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_12_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_13_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_14_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture rtl of entity xil_defaultlib.brainwave_recognizer_p_ZL13filter_coeffs_15_ROM_AUTO_1R [brainwave_recognizer_p_zl13filte...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_9s_24_1_1 [\brainwave_recognizer_mul_16s_9s...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_10s_25_1_1 [\brainwave_recognizer_mul_16s_10...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_11s_27_1_1 [\brainwave_recognizer_mul_16s_11...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_12s_28_1_1 [\brainwave_recognizer_mul_16s_12...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_13s_28_1_1 [\brainwave_recognizer_mul_16s_13...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_14s_30_1_1 [\brainwave_recognizer_mul_16s_14...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_12ns_28_1_1 [\brainwave_recognizer_mul_16s_12...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_10s_26_1_1 [\brainwave_recognizer_mul_16s_10...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_9s_25_1_1 [\brainwave_recognizer_mul_16s_9s...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mul_16s_8s_23_1_1 [\brainwave_recognizer_mul_16s_8s...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_sparsemux_7_2_13_1_1 [\brainwave_recognizer_sparsemux_...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_6s_23s_23_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_6s_23s_23_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_8s_24s_24_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_8s_24s_24_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_10s_25s_25_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_10s_25s_25_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_11s_27s_27_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_11s_27s_27_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_12s_28s_28_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_12s_28s_28_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_13s_30s_30_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_13s_30s_30_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_12ns_28s_29_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_12ns_28s_29_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_13s_28s_28_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_13s_28s_28_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_10s_26s_26_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_10s_26s_26_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_6s_25s_25_4_1_DSP48_0 [brainwave_recognizer_mac_muladd_...]
+Compiling architecture arch of entity xil_defaultlib.brainwave_recognizer_mac_muladd_16s_6s_25s_25_4_1 [\brainwave_recognizer_mac_muladd...]
+Compiling architecture behav of entity xil_defaultlib.brainwave_recognizer [brainwave_recognizer_default]
+Compiling architecture behav of entity xil_defaultlib.apatb_brainwave_recognizer_top
+Built simulation snapshot brainwave_recognizer
+
+****** xsim v2024.1.2 (64-bit)
+  **** SW Build 5164865 on Thu Sep  5 14:37:11 MDT 2024
+  **** IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
+  **** SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
+  **** Start of session at: Tue Jun 23 21:11:31 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/brainwave_recognizer/xsim_script.tcl
+# xsim {brainwave_recognizer} -autoloadwcfg -tclbatch {brainwave_recognizer.tcl}
+Time resolution is 1 ps
+source brainwave_recognizer.tcl
+## run all
+Note: simulation done!
+Time: 93655 ns  Iteration: 1  Process: /apatb_brainwave_recognizer_top/generate_sim_done_proc  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer.autotb.vhd
+Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
+Time: 93655 ns  Iteration: 1  Process: /apatb_brainwave_recognizer_top/generate_sim_done_proc  File: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/sim/vhdl/brainwave_recognizer.autotb.vhd
+$finish called at time : 93655 ns
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Jun 23 21:11:36 2026...
+INFO: [COSIM 212-316] Starting C post checking ...
+Starting HLS testbench...
+TEST: alpha positive detection
+PASS: alpha positive detection
+TEST: sample_valid=false hold behavior
+PASS: sample_valid=false hold behavior
+TEST: 20 Hz beta into alpha filter should not detect
+PASS: beta rejected by alpha filter
+TEST: all-band positive detection
+band=0 freq=2.000000 env=51528 threshold=23592 flag=1
+band=1 freq=6.000000 env=43002 threshold=23592 flag=1
+band=2 freq=10.000000 env=42262 threshold=23592 flag=1
+band=3 freq=20.000000 env=41892 threshold=23592 flag=1
+band=4 freq=40.000000 env=42201 threshold=23592 flag=1
+PASS: all-band positive detection
+TEST: invalid selector clamping
+PASS: invalid selector clamping
+TEST: threshold levels
+low threshold: env=21132 threshold=13104 flag=1
+high threshold: env=21132 threshold=32768 flag=0
+PASS: threshold levels
+All HLS tests passed.
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [HLS 200-2161] Finished Command cosim_design Elapsed time: 00:00:39; Allocated memory: 10.242 MB.
+INFO: [HLS 200-1510] Running: export_design -rtl vhdl -format ip_catalog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2024.1.2 (64-bit)
+  **** SW Build 5164865 on Thu Sep  5 14:37:11 MDT 2024
+  **** IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
+  **** SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
+  **** Start of session at: Tue Jun 23 21:11:41 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: calling package_hls_ip ip_types=vitis sysgen json_file=D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/solution1_data.json outdir=D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/impl/ip srcdir=D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1 sort_interfaces_ports=false
+INFO: Copied 1 ipmisc file(s) to D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/impl/ip/misc
+INFO: Copied 54 verilog file(s) to D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/impl/ip/hdl/verilog
+INFO: Copied 38 vhdl file(s) to D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/impl/ip/hdl/vhdl
+ipx::create_core: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 505.371 ; gain = 121.891
+INFO: Import ports from HDL: D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/impl/ip/hdl/vhdl/brainwave_recognizer.vhd (brainwave_recognizer)
+INFO: Add clock interface ap_clk
+INFO: Add reset interface ap_rst
+INFO: Add data interface sample
+INFO: Add data interface sample_valid
+INFO: Add data interface band_sel
+INFO: Add data interface threshold_sel
+INFO: Add data interface flag_out
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
+INFO: Add data interface env_out
+INFO: Add data interface threshold_out
+INFO: Calling post_process_vitis to specialize IP
+INFO: Calling post_process_sysgen to specialize IP
+Generating sysgen info xml from json file
+INFO: Created IP D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/impl/ip/component.xml
+INFO: Created IP archive D:/Files/UniTrento/advanced/final_brain_wave_recognizer/hls/brain_wave_detector/solution1/impl/ip/xilinx_com_hls_brainwave_recognizer_1_0.zip
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 23 21:12:01 2026...
+INFO: [HLS 200-802] Generated output file brain_wave_detector/solution1/impl/export.zip
+INFO: [HLS 200-2161] Finished Command export_design Elapsed time: 00:00:24; Allocated memory: 0.000 MB.
+INFO: [HLS 200-112] Total CPU user time: 8 seconds. Total CPU system time: 7 seconds. Total elapsed time: 91.896 seconds; peak allocated memory: 199.113 MB.
