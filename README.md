@@ -96,6 +96,7 @@ extras/
   hls/
   simulation/
   vivado/
+  NEXYS4 DDR Full Contraints.xdc
 ```
 
 ## Main modules
