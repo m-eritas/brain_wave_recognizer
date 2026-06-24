@@ -42,22 +42,22 @@ architecture Behavioral of test_signal_generator is
     type sine_lut_t is array (0 to LUT_SIZE - 1) of signed(15 downto 0);
 
     constant SINE_LUT : sine_lut_t := (
-        to_signed(     0, 16), to_signed(   402, 16), to_signed(   803, 16), to_signed(  1202, 16), to_signed(  1598, 16), to_signed(  1990, 16), to_signed(  2378, 16), to_signed(  2760, 16),
-        to_signed(  3135, 16), to_signed(  3503, 16), to_signed(  3862, 16), to_signed(  4212, 16), to_signed(  4551, 16), to_signed(  4880, 16), to_signed(  5197, 16), to_signed(  5501, 16),
-        to_signed(  5793, 16), to_signed(  6070, 16), to_signed(  6333, 16), to_signed(  6580, 16), to_signed(  6811, 16), to_signed(  7027, 16), to_signed(  7225, 16), to_signed(  7405, 16),
-        to_signed(  7568, 16), to_signed(  7713, 16), to_signed(  7839, 16), to_signed(  7946, 16), to_signed(  8035, 16), to_signed(  8103, 16), to_signed(  8153, 16), to_signed(  8182, 16),
-        to_signed(  8192, 16), to_signed(  8182, 16), to_signed(  8153, 16), to_signed(  8103, 16), to_signed(  8035, 16), to_signed(  7946, 16), to_signed(  7839, 16), to_signed(  7713, 16),
-        to_signed(  7568, 16), to_signed(  7405, 16), to_signed(  7225, 16), to_signed(  7027, 16), to_signed(  6811, 16), to_signed(  6580, 16), to_signed(  6333, 16), to_signed(  6070, 16),
-        to_signed(  5793, 16), to_signed(  5501, 16), to_signed(  5197, 16), to_signed(  4880, 16), to_signed(  4551, 16), to_signed(  4212, 16), to_signed(  3862, 16), to_signed(  3503, 16),
-        to_signed(  3135, 16), to_signed(  2760, 16), to_signed(  2378, 16), to_signed(  1990, 16), to_signed(  1598, 16), to_signed(  1202, 16), to_signed(   803, 16), to_signed(   402, 16),
-        to_signed(     0, 16), to_signed(  -402, 16), to_signed(  -803, 16), to_signed( -1202, 16), to_signed( -1598, 16), to_signed( -1990, 16), to_signed( -2378, 16), to_signed( -2760, 16),
-        to_signed( -3135, 16), to_signed( -3503, 16), to_signed( -3862, 16), to_signed( -4212, 16), to_signed( -4551, 16), to_signed( -4880, 16), to_signed( -5197, 16), to_signed( -5501, 16),
-        to_signed( -5793, 16), to_signed( -6070, 16), to_signed( -6333, 16), to_signed( -6580, 16), to_signed( -6811, 16), to_signed( -7027, 16), to_signed( -7225, 16), to_signed( -7405, 16),
-        to_signed( -7568, 16), to_signed( -7713, 16), to_signed( -7839, 16), to_signed( -7946, 16), to_signed( -8035, 16), to_signed( -8103, 16), to_signed( -8153, 16), to_signed( -8182, 16),
-        to_signed( -8192, 16), to_signed( -8182, 16), to_signed( -8153, 16), to_signed( -8103, 16), to_signed( -8035, 16), to_signed( -7946, 16), to_signed( -7839, 16), to_signed( -7713, 16),
-        to_signed( -7568, 16), to_signed( -7405, 16), to_signed( -7225, 16), to_signed( -7027, 16), to_signed( -6811, 16), to_signed( -6580, 16), to_signed( -6333, 16), to_signed( -6070, 16),
-        to_signed( -5793, 16), to_signed( -5501, 16), to_signed( -5197, 16), to_signed( -4880, 16), to_signed( -4551, 16), to_signed( -4212, 16), to_signed( -3862, 16), to_signed( -3503, 16),
-        to_signed( -3135, 16), to_signed( -2760, 16), to_signed( -2378, 16), to_signed( -1990, 16), to_signed( -1598, 16), to_signed( -1202, 16), to_signed(  -803, 16), to_signed(  -402, 16)
+        to_signed(0, 16), to_signed(402, 16), to_signed(803, 16), to_signed(1202, 16), to_signed(1598, 16), to_signed(1990, 16), to_signed(2378, 16), to_signed(2760, 16),
+        to_signed(3135, 16), to_signed(3503, 16), to_signed(3862, 16), to_signed(4212, 16), to_signed(4551, 16), to_signed(4880, 16), to_signed(5197, 16), to_signed(5501, 16),
+        to_signed(5793, 16), to_signed(6070, 16), to_signed(6333, 16), to_signed(6580, 16), to_signed(6811, 16), to_signed(7027, 16), to_signed(7225, 16), to_signed(7405, 16),
+        to_signed(7568, 16), to_signed(7713, 16), to_signed(7839, 16), to_signed(7946, 16), to_signed(8035, 16), to_signed(8103, 16), to_signed(8153, 16), to_signed(8182, 16),
+        to_signed(8192, 16), to_signed(8182, 16), to_signed(8153, 16), to_signed(8103, 16), to_signed(8035, 16), to_signed(7946, 16), to_signed(7839, 16), to_signed(7713, 16),
+        to_signed(7568, 16), to_signed(7405, 16), to_signed(7225, 16), to_signed(7027, 16), to_signed(6811, 16), to_signed(6580, 16), to_signed(6333, 16), to_signed(6070, 16),
+        to_signed(5793, 16), to_signed(5501, 16), to_signed(5197, 16), to_signed(4880, 16), to_signed(4551, 16), to_signed(4212, 16), to_signed(3862, 16), to_signed(3503, 16),
+        to_signed(3135, 16), to_signed(2760, 16), to_signed(2378, 16), to_signed(1990, 16), to_signed(1598, 16), to_signed(1202, 16), to_signed(803, 16), to_signed(402, 16),
+        to_signed(0, 16), to_signed(-402, 16), to_signed(-803, 16), to_signed(-1202, 16), to_signed(-1598, 16), to_signed(-1990, 16), to_signed(-2378, 16), to_signed(-2760, 16),
+        to_signed(-3135, 16), to_signed(-3503, 16), to_signed(-3862, 16), to_signed(-4212, 16), to_signed(-4551, 16), to_signed(-4880, 16), to_signed(-5197, 16), to_signed(-5501, 16),
+        to_signed(-5793, 16), to_signed(-6070, 16), to_signed(-6333, 16), to_signed(-6580, 16), to_signed(-6811, 16), to_signed(-7027, 16), to_signed(-7225, 16), to_signed(-7405, 16),
+        to_signed(-7568, 16), to_signed(-7713, 16), to_signed(-7839, 16), to_signed(-7946, 16), to_signed(-8035, 16), to_signed(-8103, 16), to_signed(-8153, 16), to_signed(-8182, 16),
+        to_signed(-8192, 16), to_signed(-8182, 16), to_signed(-8153, 16), to_signed(-8103, 16), to_signed(-8035, 16), to_signed(-7946, 16), to_signed(-7839, 16), to_signed(-7713, 16),
+        to_signed(-7568, 16), to_signed(-7405, 16), to_signed(-7225, 16), to_signed(-7027, 16), to_signed(-6811, 16), to_signed(-6580, 16), to_signed(-6333, 16), to_signed(-6070, 16),
+        to_signed(-5793, 16), to_signed(-5501, 16), to_signed(-5197, 16), to_signed(-4880, 16), to_signed(-4551, 16), to_signed(-4212, 16), to_signed(-3862, 16), to_signed(-3503, 16),
+        to_signed(-3135, 16), to_signed(-2760, 16), to_signed(-2378, 16), to_signed(-1990, 16), to_signed(-1598, 16), to_signed(-1202, 16), to_signed(-803, 16), to_signed(-402, 16)
     );
 
     ---------------------
@@ -67,15 +67,15 @@ architecture Behavioral of test_signal_generator is
     --   generate one sample_valid pulse
     --   subtract CLK_HZ
     ---------------------
-    signal tick_acc         : integer range 0 to CLK_HZ - 1 := 0;
-    signal sample_valid_reg : std_logic := '0';
+    signal tick_acc: integer range 0 to CLK_HZ - 1 := 0;
+    signal sample_valid_reg: std_logic := '0';
 
     ---------------------
     -- Sine phase state
     ---------------------
-    signal phase_index : unsigned(6 downto 0) := (others => '0');
-    signal phase_step  : unsigned(6 downto 0) := (others => '0');
-    signal sample_sine : signed(15 downto 0) := (others => '0');
+    signal phase_index: unsigned(6 downto 0) := (others => '0');
+    signal phase_step: unsigned(6 downto 0) := (others => '0');
+    signal sample_sine: signed(15 downto 0) := (others => '0');
 
 begin
     process(mode)
@@ -99,16 +99,16 @@ begin
         end if;
     end process;
 
-    --------------------------------------------------------------------
+    ---------------------
     -- Sample-valid pulse and phase update.
-    --------------------------------------------------------------------
+    ---------------------
     process(clk)
     begin
         if rising_edge(clk) then
             if rst = '1' then
-                tick_acc         <= 0;
+                tick_acc <= 0;
                 sample_valid_reg <= '0';
-                phase_index      <= (others => '0');
+                phase_index <= (others => '0');
             else
                 sample_valid_reg <= '0';
 
@@ -127,7 +127,7 @@ begin
         end if;
     end process;
 
-    sample_out   <= std_logic_vector(sample_sine);
+    sample_out <= std_logic_vector(sample_sine);
     sample_valid <= sample_valid_reg;
 
 end Behavioral;
