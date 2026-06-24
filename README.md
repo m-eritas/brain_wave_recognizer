@@ -20,7 +20,6 @@ The design generates synthetic EEG-like input samples, filters them with a Vitis
 * `sample_valid` input so the HLS detector updates only at the logical EEG sample rate
 * Envelope extraction and threshold comparison
 * VGA dashboard with:
-
   * detection-status banner
   * envelope bar
   * threshold marker
@@ -39,7 +38,7 @@ The design generates synthetic EEG-like input samples, filters them with a Vitis
 |        3 | Beta  |          20 Hz | 12–30 Hz               |
 |        4 | Gamma |          40 Hz | 30–62 Hz               |
 
-The sample rate is 128 Hz, so the Nyquist frequency is 64 Hz. For this reason, the Gamma band is limited to 30–62 Hz in this project.
+The sample rate is 128 Hz, so the Nyquist frequency is 64 Hz. For this reason, the Gamma band is limited to 30–62 Hz in this project to allow for some overhead.
 
 ## Demo configuration
 
@@ -47,9 +46,9 @@ The default demo configuration is Alpha detection:
 
 | Signal          | Value | Meaning                                             |
 | --------------- | ----: | --------------------------------------------------- |
-| `mode`          |   `3` | test signal generator outputs 10 Hz Alpha-like sine |
+| `mode`          |   `3` | Test signal generator outputs 10 Hz Alpha-like sine |
 | `band_sel`      |   `2` | HLS detector selects Alpha FIR coefficients         |
-| `threshold_sel` |   `1` | medium detection threshold                          |
+| `threshold_sel` |   `1` | Medium detection threshold                          |
 
 Expected behavior:
 
@@ -127,7 +126,7 @@ Circular buffer used by the VGA display to store recent input samples as screen 
 
 PWM-based audio sonification block. When `wave_detect = 1`, it emits a tone whose frequency depends on `band_sel`.
 
-## HLS build and verification
+## HLS build and verification scripts
 
 From the `hls/` folder:
 
@@ -145,7 +144,7 @@ Expected results:
 * HLS synthesis meets the 10 ns target.
 * Exported IP contains the current ports: `sample_valid`, `threshold_sel`, `env_out`, and `threshold_out`.
 
-## Vivado implementation summary
+## Vivado implementation
 
 The Vivado design connects:
 
@@ -178,3 +177,8 @@ See `extras/README.md` for details.
 * The input is synthetic EEG-like test data, not a real analog EEG front-end.
 * VGA output is graphical only; no font/text renderer is implemented.
 * PWM audio is a sonification of the detection result, not raw EEG audio.
+* Development was done cooperating with Claude - AI agent of Anthropic and ChatGPT
+ * There was no vibe-coding behind, but a steady reading of documentation to understand the logic and make sensible connections of software and tools.
+ * The agents have been used to produce lengthy sections, comments and markdown descriptions.
+ * The entire code has been checked and revised to our own best ability.
+ * No gray area o spaghetti code was left (and if so, it will be caused only by our lack of knowledge).
