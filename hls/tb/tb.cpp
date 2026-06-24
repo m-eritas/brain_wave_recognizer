@@ -7,7 +7,7 @@
 
 static const float PI = 3.14159265358979323846f;
 
-// Constants match brainwave_recognizer.cpp.
+// Constants hardcoded, but match brainwave_recognizer.cpp.
 static const ap_uint<18> THRESH_LOW_ENV  = 13104;
 static const ap_uint<18> THRESH_MID_ENV  = 23592;
 static const ap_uint<18> THRESH_HIGH_ENV = 32768;
@@ -92,8 +92,7 @@ static void test_sample_valid_hold() {
     assert(threshold_out == threshold_before);
     assert(flag == flag_before);
 
-    //threshold_out should update when threshold_sel changes, even if sample_valid=false.
-
+    // threshold_out should update when threshold_sel changes, even if sample_valid=false.
     brainwave_recognizer(ap_int<16>(0), false, 2, 2, flag, env_out, threshold_out);
 
     assert(env_out == env_before);
@@ -145,7 +144,7 @@ static void test_beta_into_alpha_negative() {
 }
 
 /*
-    Test 4: all five supported bands at representative center frequencies
+    Test 4: all five supported bands at representative center frequencies:
     0 = Delta, 2 Hz
     1 = Theta, 6 Hz
     2 = Alpha, 10 Hz
