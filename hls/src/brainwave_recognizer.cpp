@@ -40,28 +40,31 @@ void brainwave_recognizer(
     ap_uint<18> &env_out,       // current envelope value, scaled by IIR gain
     ap_uint<18> &threshold_out  // threshold value in same scale as env_out
 ){
-    #pragma HLS INTERFACE ap_none  port=sample
-    #pragma HLS INTERFACE ap_none port=sample_valid
-    #pragma HLS INTERFACE ap_none  port=band_sel
-    #pragma HLS INTERFACE ap_none  port=threshold_sel
-    #pragma HLS INTERFACE ap_none  port=flag_out
-    #pragma HLS INTERFACE ap_none port=env_out
-    #pragma HLS INTERFACE ap_none port=threshold_out
-    #pragma HLS INTERFACE ap_ctrl_none port=return
+    #pragma HLS INTERFACE ap_none         port=sample
+    #pragma HLS INTERFACE ap_none         port=sample_valid
+    #pragma HLS INTERFACE ap_none         port=band_sel
+    #pragma HLS INTERFACE ap_none         port=threshold_sel
+    #pragma HLS INTERFACE ap_none         port=flag_out
+    #pragma HLS INTERFACE ap_none         port=env_out
+    #pragma HLS INTERFACE ap_none         port=threshold_out
+    #pragma HLS INTERFACE ap_ctrl_none    port=return
     #pragma HLS PIPELINE II=1
 
     static ap_int<16> x_reg[N]; 
     static ap_uint<18> env = 0;
     static ap_uint<8> counter = 0;
 
+    // Clamps to avoid index out of bounds 
     ap_uint<3> safe_band = (band_sel > 4) ? ap_uint<3>(4) : band_sel;
     ap_uint<2> safe_threshold = (threshold_sel > 2) ? ap_uint<2>(2) : threshold_sel;
 
     // Thresholding
     const ap_uint<18> threshold_env = (ap_uint<18>)(threshold_table[safe_threshold]) << 3;
-    // Low:  1638 x 8 = 13,104
-    // Mid:  2949 x 8 = 23,592
-    // High: 4096 x 8 = 32,768
+    /*  
+    Low:  1638 x 8 = 13,104
+    Mid:  2949 x 8 = 23,592
+    High: 4096 x 8 = 32,768 
+    */
 
     if (!sample_valid) {
         flag_out = (counter >= 40);
@@ -70,9 +73,7 @@ void brainwave_recognizer(
         return;
     }
 
-    /*  Shift register: newest valid sample goes into x_reg[0],
-        older samples move toward higher indices. */ 
-
+    // Shift register: newest valid sample goes into x_reg[0], older samples move toward higher indices.
     for (int i = N - 1; i > 0; i--) {
         #pragma HLS UNROLL
         x_reg[i] = x_reg[i - 1];
