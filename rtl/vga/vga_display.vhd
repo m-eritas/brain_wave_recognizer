@@ -4,17 +4,17 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity vga_display is
     Port (
-        clk: in  std_logic; --25 MHz pixel clock
-        rst: in  std_logic;
+        clk: in std_logic; --25 MHz pixel clock
+        rst: in std_logic;
 
-        wave_detect: in  std_logic; -- from HLS flag_out
-        band_sel: in  std_logic_vector(2 downto 0); -- 0-4: Delta, Theta, Alpha, Beta, Gamma
+        wave_detect: in std_logic; -- from HLS flag_out
+        band_sel: in std_logic_vector(2 downto 0); -- 0-4: Delta, Theta, Alpha, Beta, Gamma
 
-        sample_in: in  std_logic_vector(15 downto 0); -- raw/synthetic Q2.14 sample
-        sample_valid: in  std_logic; -- one-clock pulse at 128 Hz
+        sample_in: in std_logic_vector(15 downto 0); -- raw/synthetic Q2.14 sample
+        sample_valid: in std_logic; -- one-clock pulse at 128 Hz
 
-        env_in: in  std_logic_vector(17 downto 0); -- HLS envelope output
-        threshold_in: in  std_logic_vector(17 downto 0); -- HLS threshold output
+        env_in: in std_logic_vector(17 downto 0); -- HLS envelope output
+        threshold_in: in std_logic_vector(17 downto 0); -- HLS threshold output
 
         hsync: out std_logic;
         vsync: out std_logic;
@@ -164,21 +164,18 @@ begin
     -- VGA sync signals
     ---------------------
     hsync <= '0' when (
-        h_count >= to_unsigned(H_SYNC_START, h_count'length) and
-        h_count <  to_unsigned(H_SYNC_END,   h_count'length)
+        h_count >= to_unsigned(H_SYNC_START, h_count'length) and h_count < to_unsigned(H_SYNC_END, h_count'length)
     ) else '1';
 
     vsync <= '0' when (
-        v_count >= to_unsigned(V_SYNC_START, v_count'length) and
-        v_count <  to_unsigned(V_SYNC_END,   v_count'length)
+        v_count >= to_unsigned(V_SYNC_START, v_count'length) and v_count < to_unsigned(V_SYNC_END, v_count'length)
     ) else '1';
 
     ---------------------
     -- Visible area.
     ---------------------
     video_on <= '1' when (
-        h_count < to_unsigned(H_VISIBLE, h_count'length) and
-        v_count < to_unsigned(V_VISIBLE, v_count'length)
+        h_count < to_unsigned(H_VISIBLE, h_count'length) and v_count < to_unsigned(V_VISIBLE, v_count'length)
     ) else '0';
 
     ---------------------
@@ -199,14 +196,10 @@ begin
         threshold_y_i := env_to_y(threshold_in);
 
         -- Default: black.
-        r <= "0000";
-        g <= "0000";
-        b <= "0000";
+        r <= "0000"; g <= "0000"; b <= "0000";
 
         if video_on = '1' then
-            r <= "0000";
-            g <= "0001";
-            b <= "0001";
+            r <= "0000"; g <= "0001"; b <= "0001";
             ---------------------
             -- Top status banner.
             ---------------------
@@ -216,40 +209,26 @@ begin
                     -- detection color depends on selected EEG band.
                     case band_sel is
                         when "000" =>  -- Delta: blue
-                            r <= "0000";
-                            g <= "0000";
-                            b <= "1111";
+                            r <= "0000"; g <= "0000"; b <= "1111";
 
                         when "001" =>  -- Theta: cyan
-                            r <= "0000";
-                            g <= "1111";
-                            b <= "1111";
+                            r <= "0000"; g <= "1111"; b <= "1111";
 
                         when "010" =>  -- Alpha: green
-                            r <= "0000";
-                            g <= "1111";
-                            b <= "0000";
+                            r <= "0000"; g <= "1111"; b <= "0000";
 
                         when "011" =>  -- Beta: orange/red
-                            r <= "1111";
-                            g <= "0100";
-                            b <= "0000";
+                            r <= "1111"; g <= "0100"; b <= "0000";
 
                         when "100" =>  -- Gamma: magenta
-                            r <= "1111";
-                            g <= "0000";
-                            b <= "1111";
+                            r <= "1111"; g <= "0000"; b <= "1111";
 
                         when others =>
-                            r <= "1111";
-                            g <= "1111";
-                            b <= "1111";
+                            r <= "1111"; g <= "1111"; b <= "1111";
                     end case;
                 else
                     -- Idle banner.
-                    r <= "0000";
-                    g <= "0011";
-                    b <= "0000";
+                    r <= "0000"; g <= "0011"; b <= "0000";
                 end if;
             end if;
 
@@ -260,9 +239,7 @@ begin
                 (x_i >= BAR_BOX_LEFT and x_i <= BAR_BOX_RIGHT and (y_i = BAR_TOP or y_i = BAR_BOTTOM)) or
                 (y_i >= BAR_TOP and y_i <= BAR_BOTTOM and (x_i = BAR_BOX_LEFT or x_i = BAR_BOX_RIGHT))
             ) then
-                r <= "0100";
-                g <= "0100";
-                b <= "0100";
+                r <= "0100"; g <= "0100"; b <= "0100";
             end if;
 
             ---------------------
@@ -271,9 +248,7 @@ begin
             if (
                 x_i >= BAR_X_LEFT and x_i <= BAR_X_RIGHT and y_i >= env_y_i and y_i <= BAR_BOTTOM
             ) then
-                r <= "0000";
-                g <= "1111";
-                b <= "1000";
+                r <= "0000"; g <= "1111"; b <= "1000";
             end if;
 
             ---------------------
@@ -282,9 +257,7 @@ begin
             if (
                 x_i >= BAR_BOX_LEFT + 3 and x_i <= BAR_BOX_RIGHT - 3 and abs_int(y_i - threshold_y_i) <= 1
             ) then
-                r <= "1111";
-                g <= "0000";
-                b <= "0000";
+                r <= "1111"; g <= "0000"; b <= "0000";
             end if;
 
             ---------------------
@@ -294,9 +267,7 @@ begin
                 (x_i >= 0 and x_i <= H_VISIBLE - 1 and (y_i = WAVE_TOP or y_i = WAVE_BOTTOM)) or
                 (y_i >= WAVE_TOP and y_i <= WAVE_BOTTOM and (x_i = 0 or x_i = H_VISIBLE - 1))
             ) then
-                r <= "0100";
-                g <= "0100";
-                b <= "0100";
+                r <= "0100"; g <= "0100"; b <= "0100";
             end if;
 
             ---------------------
@@ -306,9 +277,7 @@ begin
                 y_i >= WAVE_TOP and y_i <= WAVE_BOTTOM and
                 abs_int(y_i - wave_y_i) <= 1
             ) then
-                r <= "1111";
-                g <= "1111";
-                b <= "1111";
+                r <= "1111"; g <= "1111"; b <= "1111";
             end if;
         end if;
     end process;
