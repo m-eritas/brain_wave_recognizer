@@ -12,7 +12,7 @@ architecture sim of tb_pwm_audio is
     ---------------------
     constant CLK_HZ: integer := 1000000;
     constant PWM_BITS: integer := 8;
-    constant CLK_PERIOD: time    := 1 us;
+    constant CLK_PERIOD: time := 1 us;
 
     constant PWM_LEVELS: integer := 2 ** PWM_BITS;
 
@@ -42,12 +42,12 @@ architecture sim of tb_pwm_audio is
     -- Count how many cycles audio_pwm is high.
     ---------------------
     procedure count_high_cycles(
-        signal clk_sig      : in std_logic;
-        signal pwm_sig      : in std_logic;
-        constant cycles     : in natural;
-        variable high_count : out integer
+        signal clk_sig: in std_logic;
+        signal pwm_sig: in std_logic;
+        constant cycles: in natural;
+        variable high_count: out integer
        ) is
-    variable local_count : integer := 0;
+    variable local_count: integer := 0;
     begin
         local_count := 0;
 
@@ -100,7 +100,7 @@ begin
     ---------------------
     -- Clock generation
     ---------------------
-    clk_process : process
+    clk_process: process
     begin
         while true loop
             clk <= '0';
@@ -113,7 +113,7 @@ begin
     ---------------------
     -- Test process
     ---------------------
-    stim_process : process
+    stim_process: process
 
         procedure check_band_pwm(
             constant band_value: in integer;
@@ -167,7 +167,7 @@ begin
             report "PASS PWM band: " & band_name severity note;
         end procedure;
 
-        variable high_count : integer := 0;
+        variable high_count: integer := 0;
 
     begin
 
