@@ -10,7 +10,7 @@ architecture sim of tb_vga_display is
     ---------------------
     -- VGA 640x480 @ 60 Hz using 25 MHz pixel clock.
     ---------------------
-    constant CLK_PERIOD: time    := 40 ns;
+    constant CLK_PERIOD: time := 40 ns;
     constant H_SYNC_WIDTH: integer := 96;
     constant V_SYNC_WIDTH_CLK: integer := 1600; -- 2 lines * 800 clocks/line
 
@@ -105,7 +105,7 @@ begin
         sample_valid <= '0';
 
         -- nonzero values so the bar/threshold logic is active.
-        env_in       <= std_logic_vector(to_unsigned(45000, 18));
+        env_in <= std_logic_vector(to_unsigned(45000, 18));
         threshold_in <= std_logic_vector(to_unsigned(23592, 18));
 
         wait_clocks(clk, 5);
