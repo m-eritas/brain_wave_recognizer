@@ -10,13 +10,13 @@ entity waveform_buffer is
         SAMPLE_SCALE_DIV: integer := 256
     );
     Port (
-        clk: in  std_logic;
-        rst: in  std_logic;
+        clk: in std_logic;
+        rst: in std_logic;
 
-        sample_in: in  std_logic_vector(15 downto 0); -- signed Q2.14 sample
-        sample_valid: in  std_logic; -- one-clock valid pulse
+        sample_in: in std_logic_vector(15 downto 0); -- signed Q2.14 sample
+        sample_valid: in std_logic; -- one-clock valid pulse
 
-        display_x: in  std_logic_vector(9 downto 0); -- current VGA x position
+        display_x: in std_logic_vector(9 downto 0); -- current VGA x position
         wave_y: out std_logic_vector(8 downto 0) -- screen y coordinate
     );
 end waveform_buffer;
