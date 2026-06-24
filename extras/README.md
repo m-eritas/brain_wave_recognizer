@@ -1,8 +1,8 @@
 # Proof Artifacts and Extras
 
-This folder contains verification and implementation artifacts for the Brain-Wave Recognizer project, as well as the Full Constraints for NEXYS 4 Board,
+This folder contains verification and implementation artifacts for the Brain-Wave Recognizer project, as well as the Full Constraints for NEXYS 4 Board.
 
-The artifacts are organized by verification stage:
+The artifacts are organized by verification stages:
 
 ```text
 extras/
@@ -36,20 +36,11 @@ The HLS testbench verifies:
 * Safe clamping of invalid selectors
 * Threshold-level behavior
 
-Key results:
+Key result:
 
 ```text
 All HLS tests passed.
 C/RTL co-simulation finished: PASS
-```
-
-The synthesis report also confirms the HLS interface, including:
-
-```text
-sample_valid
-threshold_sel
-env_out
-threshold_out
 ```
 
 ## RTL simulation proofs
@@ -69,7 +60,7 @@ Folder: `extras/simulation/`
 
 Verifies that `sample_valid` pulses at the expected 128 Hz logical sample rate when the module is clocked at 25 MHz. Also checks that Alpha mode produces changing nonzero samples and that silence mode forces `sample_out = 0`.
 
-Key results:
+Key result:
 
 ```text
 tb_test_signal_generator passed: 25 MHz / 128 Hz timing and mode behavior are OK.
@@ -89,7 +80,7 @@ tb_vga_display passed: interface, timing, blanking, and banner colour checks are
 
 Verifies that `audio_pwm` stays silent when detection is inactive, toggles when detection is active, works for all valid band selectors, and handles an invalid selector safely.
 
-Key results:
+Key result:
 
 ```text
 tb_pwm_audio passed.
@@ -116,7 +107,7 @@ Folder: `extras/vivado/`
 
 The most important implementation proof is `04_impl_timing_summary.rpt`. It shows that post-implementation timing is met.
 
-Key results:
+Key result:
 
 ```text
 All user specified timing constraints are met.
@@ -135,7 +126,7 @@ The IO report confirms the external mappings for:
 
 ## DRC notes
 
-DRC report contains only warnings, but the design is still valid. In this project, the relevant expected warnings are optimization/configuration warnings, not functional errors.
+DRC report contains only warnings, but the design is still valid. In this project, the relevant warnings are optimization/configuration warnings, not functional errors.
 
 The DSP pipelining warnings indicate that Vivado recommends more internal DSP pipeline stages. Since the final implementation timing passes, these are not blocking.
 
