@@ -178,7 +178,7 @@ See `extras/README.md` for details.
 * VGA output is graphical only; no font/text renderer is implemented.
 * PWM audio is a sonification of the detection result, not raw EEG audio.
 * Development was done cooperating with Claude - AI agent of Anthropic and ChatGPT
- * There was no vibe-coding behind, but a steady reading of documentation to understand the logic and make sensible connections of software and tools.
- * The agents have been used to produce lengthy sections, comments and markdown descriptions.
- * The entire code has been checked and revised to our own best ability.
- * No gray area o spaghetti code was left (and if so, it will be caused only by our lack of knowledge).
+  * There was no vibe-coding behind, but a steady reading of documentation to understand the logic and make sensible connections of software and tools.
+  * The agents have been used to produce lengthy sections, comments and markdown descriptions.
+  * The entire code has been checked and revised to our own best ability.
+  * No gray area o spaghetti code was left (and if so, it will be caused only by our lack of knowledge).
