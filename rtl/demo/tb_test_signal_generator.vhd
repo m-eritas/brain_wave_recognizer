@@ -10,24 +10,24 @@ architecture sim of tb_test_signal_generator is
     ---------------------
     -- Testbench checks the real 25 MHz / 128 Hz timing.
     ---------------------
-    constant CLK_HZ_TB    : integer := 25000000;
-    constant SAMPLE_HZ_TB : integer := 128;
-    constant CLK_PERIOD : time := 40 ns;
+    constant CLK_HZ_TB: integer := 25000000;
+    constant SAMPLE_HZ_TB: integer := 128;
+    constant CLK_PERIOD: time := 40 ns;
 
     -- 25,000,000 / 128 = 195,312.5
-    constant FIRST_VALID_CYCLES  : natural := 195313;
-    constant SECOND_VALID_CYCLES : natural := 195312;
-    constant THIRD_VALID_CYCLES  : natural := 195313;
+    constant FIRST_VALID_CYCLES: natural := 195313;
+    constant SECOND_VALID_CYCLES: natural := 195312;
+    constant THIRD_VALID_CYCLES: natural := 195313;
 
-    signal clk          : std_logic := '0';
-    signal rst          : std_logic := '1';
-    signal mode         : std_logic_vector(2 downto 0) := "011"; -- alpha
-    signal sample_out   : std_logic_vector(15 downto 0);
-    signal sample_valid : std_logic;
+    signal clk: std_logic := '0';
+    signal rst: std_logic := '1';
+    signal mode: std_logic_vector(2 downto 0) := "011"; -- alpha
+    signal sample_out: std_logic_vector(15 downto 0);
+    signal sample_valid: std_logic;
 
     procedure wait_clocks(
-        signal clk_sig : in std_logic;
-        constant n     : in natural
+        signal clk_sig: in std_logic;
+        constant n: in natural
     ) is
     begin
         for i in 1 to n loop
@@ -37,12 +37,12 @@ architecture sim of tb_test_signal_generator is
     end procedure;
 
     procedure wait_for_valid(
-        signal clk_sig   : in std_logic;
-        signal valid_sig : in std_logic;
-        constant max_cycles : in natural;
-        variable cycles_out : out natural
+        signal clk_sig: in std_logic;
+        signal valid_sig: in std_logic;
+        constant max_cycles: in natural;
+        variable cycles_out: out natural
     ) is
-        variable c : natural := 0;
+        variable c: natural := 0;
     begin
         loop
             wait until rising_edge(clk_sig);
@@ -63,21 +63,21 @@ architecture sim of tb_test_signal_generator is
 begin
 
     -- DUT
-    dut : entity work.test_signal_generator
+    dut: entity work.test_signal_generator
         generic map (
-            CLK_HZ    => CLK_HZ_TB,
+            CLK_HZ => CLK_HZ_TB,
             SAMPLE_HZ => SAMPLE_HZ_TB
         )
         port map (
-            clk          => clk,
-            rst          => rst,
-            mode         => mode,
-            sample_out   => sample_out,
+            clk => clk,
+            rst => rst,
+            mode => mode,
+            sample_out => sample_out,
             sample_valid => sample_valid
         );
 
     -- Clock generation
-    clk_process : process
+    clk_process: process
     begin
         while true loop
             clk <= '0';
@@ -88,12 +88,12 @@ begin
     end process;
 
     -- Main test
-    stim_process : process
-        variable cycles      : natural := 0;
-        variable first_sample : std_logic_vector(15 downto 0);
+    stim_process: process
+        variable cycles: natural := 0;
+        variable first_sample: std_logic_vector(15 downto 0);
         variable second_sample: std_logic_vector(15 downto 0);
     begin
-        rst  <= '1';
+        rst <= '1';
         mode <= "011"; -- alpha, phase_step = 10
         wait_clocks(clk, 5);
 
