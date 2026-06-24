@@ -129,7 +129,3 @@ The IO report confirms the external mappings for:
 DRC report contains only warnings, but the design is still valid. In this project, the relevant warnings are optimization/configuration warnings, not functional errors.
 
 The DSP pipelining warnings indicate that Vivado recommends more internal DSP pipeline stages. Since the final implementation timing passes, these are not blocking.
-
-## Hardware proof
-
-TODO
